@@ -53,7 +53,42 @@ function tinhTienDien() {
     );
   }
 }
-// Handle Click Btn
+
+// bai 3
+function tinhThue() {
+  const inputs = $all('.form-bai3 input');
+  const thuNhapChiuThue = +inputs[1].value - 4e6 - inputs[2].value * 16e5;
+  var thue =
+    thuNhapChiuThue > 0 && thuNhapChiuThue <= 60e6
+      ? thuNhapChiuThue * 0.05
+      : thuNhapChiuThue > 60e6 && thuNhapChiuThue <= 120e6
+      ? thuNhapChiuThue * 0.1
+      : thuNhapChiuThue > 120e6 && thuNhapChiuThue <= 210e6
+      ? thuNhapChiuThue * 0.15
+      : thuNhapChiuThue > 210e6 && thuNhapChiuThue <= 384e6
+      ? thuNhapChiuThue * 0.2
+      : thuNhapChiuThue > 384e6 && thuNhapChiuThue <= 624e6
+      ? thuNhapChiuThue * 0.25
+      : thuNhapChiuThue > 624e6 && thuNhapChiuThue <= 960e6
+      ? thuNhapChiuThue * 0.3
+      : thuNhapChiuThue > 960e6
+      ? thuNhapChiuThue * 0.35
+      : renderResult(txtSalary[2], 'Bạn không phải chịu thuế');
+
+  if (thue) {
+    renderResult(
+      txtSalary[2],
+      `Họ tên : ${
+        inputs[0].value
+      }. Thuế thu nhập cá nhân : ${new Intl.NumberFormat('vi-VN', {
+        style: 'currency',
+        currency: 'VND',
+      }).format(thue)}`
+    );
+  }
+}
+
+// Handle Click Btn & Enter Press :))
 btnSalary[0].onclick = (e) => {
   e.preventDefault();
   tuyenSinh();
@@ -61,4 +96,8 @@ btnSalary[0].onclick = (e) => {
 btnSalary[1].onclick = (e) => {
   e.preventDefault();
   tinhTienDien();
+};
+btnSalary[2].onclick = (e) => {
+  e.preventDefault();
+  tinhThue();
 };
