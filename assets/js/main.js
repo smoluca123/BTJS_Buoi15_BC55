@@ -28,9 +28,37 @@ function tuyenSinh() {
 }
 
 // bai 2
-
+function tinhTienDien() {
+  const inputs = $all('.form-bai2 input');
+  const kwInput = +inputs[1].value;
+  var total =
+    kwInput > 0 && kwInput <= 50
+      ? kwInput * 500
+      : kwInput > 50 && kwInput <= 100
+      ? 50 * 500 + (kwInput - 50) * 650
+      : kwInput > 100 && kwInput <= 200
+      ? 50 * 500 + 50 * 650 + (kwInput - 100) * 850
+      : kwInput > 200 && kwInput <= 350
+      ? 50 * 500 + 50 * 650 + 100 * 850 + (kwInput - 200) * 1100
+      : kwInput > 350
+      ? 50 * 500 + 50 * 650 + 100 * 850 + 150 * 1100 + (kwInput - 350) * 1300
+      : renderResult(txtSalary[1], 'Số KW không hợp lệ');
+  if (total) {
+    renderResult(
+      txtSalary[1],
+      `Họ tên : ${inputs[0].value}. Cần đóng ${new Intl.NumberFormat('vi-VN', {
+        style: 'currency',
+        currency: 'VND',
+      }).format(total)} tiền điện`
+    );
+  }
+}
 // Handle Click Btn
 btnSalary[0].onclick = (e) => {
   e.preventDefault();
   tuyenSinh();
+};
+btnSalary[1].onclick = (e) => {
+  e.preventDefault();
+  tinhTienDien();
 };
