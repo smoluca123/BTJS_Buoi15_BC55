@@ -88,6 +88,39 @@ function tinhThue() {
   }
 }
 
+// bài 4
+function handleShowInput() {
+  const inputs = $all('.form-bai4 input');
+  const loaiKH = $a('#loaiKH').value;
+  loaiKH == 'company'
+    ? (inputs[2].style.display = 'block')
+    : (inputs[2].style.display = 'none');
+}
+
+function tinhTienCap() {
+  const inputs = $all('.form-bai4 input');
+  const loaiKH = $a('#loaiKH').value;
+  let total = 0;
+  total =
+    loaiKH == 'company'
+      ? 15 +
+        (+inputs[2].value >= 0 && +inputs[2].value <= 10
+          ? +inputs[2].value * 75
+          : +inputs[2].value > 0 && +inputs[2].value > 10
+          ? 75 + (+inputs[2].value - 10) * 5
+          : 0) +
+        (+inputs[1].value > 0 ? +inputs[1].value * 50 : 0)
+      : 4.5 + 20.5 + (+inputs[1].value > 0 ? 7.5 * +inputs[1].value : 0);
+  loaiKH != 'company' ? ($all('#loaiKH option')[1].selected = true) : '';
+  renderResult(
+    txtSalary[3],
+    `Mã khách hàng : ${inputs[0].value}; Tiền cáp : ${new Intl.NumberFormat(
+      'en-US',
+      { style: 'currency', currency: 'USD' }
+    ).format(total)}`
+  );
+}
+
 // Handle Click Btn & Enter Press :))
 btnSalary[0].onclick = (e) => {
   e.preventDefault();
@@ -100,4 +133,8 @@ btnSalary[1].onclick = (e) => {
 btnSalary[2].onclick = (e) => {
   e.preventDefault();
   tinhThue();
+};
+btnSalary[3].onclick = (e) => {
+  e.preventDefault();
+  tinhTienCap();
 };

@@ -140,7 +140,7 @@
                         </div>
 
                         <div class="alert alert-success" role="alert">
-                            👉<span id="txtSalary" class="resultBai1"></span>
+                            👉<span id="txtSalary" class="resultBai2"></span>
                         </div>
 
                     </form>
@@ -182,25 +182,19 @@
                         </div>
 
                         <div class="alert alert-success" role="alert">
-                            👉<span id="txtSalary" class="resultBai1"></span>
+                            👉<span id="txtSalary" class="resultBai3"></span>
                         </div>
 
                     </form>
                 </div>
                 <!-- Bài 4 -->
                 <div class="tab-pane fade" id="bai4" role="tabpanel" aria-labelledby="profile-tab">
-                    <h1 class="tab-title">📏 Tính diện tích, chu vi hình chữ nhật</h1>
+                    <h1 class="tab-title">🕸️ Tính tiền cáp</h1>
                     <div class="debai">
                         <p>💡<b>Đề bài:</b>
-                            <br>
-                            Bài 4: Tính diện tích, chu vi hình chữ nhật
-                            <br>
-                            Viết chương trình nhập vào 2 chiều dài và chiều rộng của HCN (hình chữ nhật).
-                            <br>
-                            Tính và xuất ra diện tích, chu vi của HCN đó.<br>
-                            Công thức:<br>
-                            - Diện tích = dài * rộng<br>
-                            - Chu vi = ( dài + rộng ) * 2
+                            Chương trình cho phép nhập vào : <br>Mã khách hàng, loại khách hàng, số kết nối, số kênh
+                            cao cấp. <br>Nếu chọn loại khách hàng là Doanh nghiệp ô nhập số kết nối sẽ hiện lên, nếu
+                            chọn loại khách hàng là nhà dân thì ô nhập kết nối sẽ ẩn đi hoặc disable
                         </p>
                         <!-- <ul>
                             <li>Tìm tới thẻ và lấy giá trị</li>
@@ -213,10 +207,21 @@
                     </div>
                     <form class="form-group form-bai4 row">
                         <div class="col-4">
-                            <input type="number" class="form-control form-input" placeholder="Nhập chiều dài">
+                            <select class="form-control form-input" name="" id="loaiKH" onchange="handleShowInput()">
+                                <option value="">Chọn loại khách hàng</option>
+                                <option value="user">Nhà dân (Mặc định)</option>
+                                <option value="company">Doanh nghiệp</option>
+                            </select>
                         </div>
                         <div class="col-4">
-                            <input type="number" class="form-control form-input" placeholder="Nhập chiều rộng">
+                            <input type="text" class="form-control form-input" placeholder="Nhập mã khách hàng">
+                        </div>
+                        <div class="col-4">
+                            <input type="number" class="form-control form-input" placeholder="Số kênh cao cấp">
+                        </div>
+                        <div class="col-4">
+                            <input style="display: none;" type="number" class="form-control form-input"
+                                placeholder="Số kết nối">
                         </div>
 
                         <div class="col-12">
@@ -225,51 +230,12 @@
                         </div>
 
                         <div class="alert alert-success" role="alert">
-                            👉<span id="txtSalary" class="resultBai1"></span>
+                            👉<span id="txtSalary" class="resultBai4"></span>
                         </div>
 
                     </form>
                 </div>
-                <!-- Bài 5 -->
-                <div class="tab-pane fade" id="bai5" role="tabpanel" aria-labelledby="profile-tab">
-                    <h1 class="tab-title">🧮 Tính tổng 2 ký số</h1>
-                    <div class="debai">
-                        <p>💡<b>Đề bài:</b>
-                            <br>
-                            Bài 5: Tính tổng 2 ký số<br>
-                            Viết chương trình nhập vào 1 số có 2 chữ số (VD: 12, 44, 83)<br>
-                            Tính tổng 2 ký số của số vừa
-                            nhập.<br>
-                            Ví dụ:<br>
-                            12 => Tổng là 1+2 = 3
-                            <br>
-                            44 => Tổng là 4 + 4 = 8
-                        </p>
-                        <!-- <ul>
-                            <li>Tìm tới thẻ và lấy giá trị</li>
-                            <li>Tạo hàm cơ bản</li>
-                            <li>Gắn sự kiện click cho button</li>
-                            <li>Thay đổi nội dung cho thẻ</li>
-                            <li>Xử lý load trang với button của form</li>
-                        </ul> -->
-                        <p></p>
-                    </div>
-                    <form class="form-group form-bai5 row">
-                        <div class="col-4">
-                            <input type="number" class="form-control form-input" placeholder="Nhập số có 2 chữ số">
-                        </div>
 
-                        <div class="col-12">
-                            <button class="btn btn--primary me-1 mb-1" type="submit" id="btnSalary">Tính
-                                tổng (Enter)</button>
-                        </div>
-
-                        <div class="alert alert-success" role="alert">
-                            👉<span id="txtSalary" class="resultBai1"></span>
-                        </div>
-
-                    </form>
-                </div>
 
             </div>
         </div>
